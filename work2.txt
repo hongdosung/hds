@@ -3,3 +3,5 @@
 - Freddie
 
 - Add Coach Teddy: work2.txt
+
+Leopards의 coach를 Nicholas로 변경
