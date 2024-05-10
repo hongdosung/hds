@@ -9,3 +9,5 @@ Tigers의 coach를 Ruth로 변경
 Tigers의 manger를 merge2로 변경
 
 Tigers의 manger를 rebase2 추가
+
+Tigers의 manger를 Park 추가
