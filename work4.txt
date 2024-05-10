@@ -3,3 +3,4 @@
 coach: Grace
 
 Panhers의 coach를 Shirley로 변경
+Panthers의 coach를 Raymond로 변경
