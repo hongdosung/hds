@@ -5,3 +5,4 @@
 - Add Coach Teddy: work2.txt
 
 Leopards의 coach를 Nicholas로 변경
+Leopards의 coach를 Melissa로 변경
