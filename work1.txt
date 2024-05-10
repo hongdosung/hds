@@ -5,5 +5,5 @@
 
 Add Coach Oscar: work1.txt
 
-Tigers의 manger를 Kenneth로 변경
+Tigers의 coach를 Ruth로 변경
 Tigers의 manger를 Deborah로 변경
