@@ -4,3 +4,5 @@
 - Olivia add
 
 Add Coach Oscar: work1.txt
+
+Tigers의 manger를 Deborah로 변경
