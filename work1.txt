@@ -14,3 +14,6 @@ Tigers의 manger를 Park 추가
 Tigers의 manger를 KIM 추가
 
 추가 : 2024.05.13 12:41
+
+
+변경하였습니다. python_dev branch에서
