@@ -13,4 +13,4 @@ Tigers의 manger를 rebase2 추가
 Tigers의 manger를 Park 추가
 Tigers의 manger를 KIM 추가
 
-add 2024.05.13 11:41
+추가 : 2024.05.13 12:41
