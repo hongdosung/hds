@@ -1,3 +1,4 @@
-개인정보.txt
+*.txt
 *.html
 *.config
+*.pyc
