@@ -83,3 +83,4 @@ async def update_user(user_update: UserUpdateRequest, user_id: UUID):
 def update_item(item_id: int, item: Item):
     return {'item_id': item_id, 'ITEM_NAME': item.name, 'ITEM_PRICE': item.price}
     #return {'ITEM_NAME': item.name, 'item_id': item_id}
+
