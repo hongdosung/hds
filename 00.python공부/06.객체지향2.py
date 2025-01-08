@@ -32,8 +32,7 @@ print(person.get_age())   # 25
 
 # 직접 접근 시도 (실패)
 #print(person.__name)  # AttributeError: 'Person' object has no attribute '__name'
-print(person.name2) 
-
+print(f'person.name2: {person.name2}\n')
 
 # 위 코드에서는 Person 클래스의 __name과 __age 변수를 private 변수로 정의하고, 
 # getter와 setter 메소드를 통해서만 접근할 수 있도록 하여 캡슐화를 구현합니다.
@@ -60,7 +59,6 @@ person = Person("Alice", 30)
 print(f'kkk: {person}')  # Alice, 30
 print(repr(person))  # Person(name='Alice', age=30)
 
-# 객체 생성 및 메소드 호출
 person1 = Person("Alice", 30)
 person2 = Person("Alice", 30)
 print(person1 == person2)  # True

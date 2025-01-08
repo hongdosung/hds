@@ -90,13 +90,14 @@ make_animal_speak(cat)  # Whiskers says Meow!
 
 #### 캡슐화
 # 캡슐화(Encapsulation)는 객체의 내부 상태를 외부에서 직접 접근하지 못하도록 하고, 
-# 공개된 메소드를 통해서만 접근할 수 있도록 하는 개념입니다. 이를 통해 데이터의 무결성을 보호하고, 객체의 상태를 제어할 수 있습니다.
+# 공개된 메소드를 통해서만 접근할 수 있도록 하는 개념입니다. 
+# 이를 통해 데이터의 무결성을 보호하고, 객체의 상태를 제어할 수 있습니다.
 
 
 # 객체 생성 및 메소드 호출
 person = Person("Alice", 30)
-print(person.get_name())  # Alice
-print(person.get_age())   # 30
+print(f'person.get_name: {person.get_name()}')  # Alice
+print(f'person.get_age: {person.get_age()}')   # 30
 
 person.set_name("Bob")
 person.set_age(120)
@@ -104,7 +105,7 @@ print(person.get_name())  # Bob
 print(person.get_age())   # 25
 
 # 직접 접근 시도 (실패)
-print(person.name)  # AttributeError: 'Person' object has no attribute '__name'
+print(f'person.name: {person.name}')  # AttributeError: 'Person' object has no attribute '__name'
 
 
 class Student:
@@ -114,25 +115,24 @@ class Student:
       raise ValueError('11살 이상의 학생만 가능합니다')
     self._age = age
 
-  @property
-  def age(self):
-    return self.__age
+#   @property
+#   def age(self):
+#     return self.__age
 
-  @age.setter
-  def age(self, age):
-    if age <= 10:
-      raise ValueError('11살 이상의 학생만 가능합니다')
-    self.__age = age
-    
+#   @age.setter
+#   def age(self, age):
+#     if age <= 10:
+#       raise ValueError('11살 이상의 학생만 가능합니다')
+#     self.__age = age
 
-stu1 = Student('son', 20)  # ValueError 발생
-#stu1 = Student('son', 8)
+stu1 = Student('son', 20)
+#stu1 = Student('son', 8) # ValueError 발생
 
 # __init__함수의 영향을 받지 않으므로 ValueError가 발생하지 않는다
 stu1._age = 8
 
-print(stu1._name)  # son
-print(stu1._age)  # 8
+print(f'stu1._name: {stu1._name}')  # son
+print(f'stu1._age: {stu1._age}')  # 8
 
 
 class Sample():
@@ -145,8 +145,9 @@ class Sample():
         return self.__c
     
 obj1 = Sample()
-print(obj1.a)
-print(obj1._b)
-print(obj1._Sample__c)
-print(obj1.get_key())
+print(f'obj1.a: {obj1.a}')
+print(f'obj1._b: {obj1._b}')
+print(f'obj1._Sample__c: {obj1._Sample__c}')
+print(f'obj1.get_key: {obj1.get_key()}')
+# print(f'obj1.__c: {obj1.__c}') # AttributeError: 'Sample' object has no attribute '__c'
 print(dir(obj1))

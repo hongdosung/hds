@@ -57,7 +57,7 @@ library = Library()
 library.add_book(book1)
 library.add_book(book2)
 library.list_books()
-print(f'1 ===============================')
+print(f'1 ===============================\n')
 
 
 class EBook(Book):
@@ -84,19 +84,19 @@ printed_book = PrintedBook("To Kill a Mockingbird", "Harper Lee", "0987654321", 
 print(f'2 ===============================')
 print(ebook)
 print(printed_book)
-
+print()
 print(ebook.borrow())
 print(ebook.borrow())  # 이미 대출된 도서
+print()
 print(ebook.return_book())
 print(ebook.return_book())  # 이미 반납된 도서
-
-
-print(f'2 ===============================')
+print(f'2 ===============================\n')
 
 # 객체 생성 및 메소드 호출
 library = Library()
 library.add_book(ebook)
 library.add_book(printed_book)
+print()
 
 print(f'3 ===============================')
 print(library)
@@ -106,8 +106,8 @@ if found_book:
     print(f"Found: {found_book}")
 else:
     print("Book not found")
-print(f'3 ===============================')
-  
+print(f'3 ===============================\n')
+
 
 class Member:
     def __init__(self, name):
@@ -138,10 +138,12 @@ print(f'4 ===============================')
 
 print(f'book2: {member.borrow_book(book2)}')
 print(f'ebook: {member.borrow_book(ebook)}')
-print(member.borrow_book(printed_book))
+print(f'ebook: {member.borrow_book(printed_book)}')
+print('\n==== nmember.list1 ====')
 member.list_borrowed_books()
-
+print()
 print(member.return_book(ebook))
+print('\n==== nmember.list2 ====')
 member.list_borrowed_books()
 
 print(f'4 ===============================')
