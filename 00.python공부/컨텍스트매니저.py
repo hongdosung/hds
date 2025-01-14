@@ -72,6 +72,8 @@ with timer() as t:
     for _ in range(1000000):
         pass
 
+print(f"{'='*100}\n")
+
 
 @contextmanager
 def my_context_manager():

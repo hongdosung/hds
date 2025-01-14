@@ -21,43 +21,7 @@
 import threading
 import multiprocessing
 import time
-
-# Function to be executed in a thread
-def thread_function(name):
-    print(f"Thread {name}: starting")
-    time.sleep(2)
-    print(f"Thread {name}: finishing")
-
-# Function to be executed in a process
-def process_function(name):
-    print(f"Process {name}: starting")
-    time.sleep(2)
-    print(f"Process {name}: finishing")
-
-# if __name__ == "__main__":
-#     # Creating and starting threads
-#     threads = []
-#     for i in range(3):
-#         thread = threading.Thread(target=thread_function, args=(i,))
-#         threads.append(thread)
-#         thread.start()
-
-#     # Creating and starting processes
-#     processes = []
-#     for i in range(3):
-#         process = multiprocessing.Process(target=process_function, args=(i,))
-#         processes.append(process)
-#         process.start()
-
-#     # Waiting for all threads to complete
-#     for thread in threads:
-#         thread.join()
-
-#     # Waiting for all processes to complete
-#     for process in processes:
-#         process.join()
-
-#     print("All threads and processes have finished.")
+import sys
 
 def print_numbers():
     for i in range(5):
@@ -84,13 +48,25 @@ t2.join()
 print("Both threads have finished execution.")
 print(f"{'='*100}\n")
 
-# 스레드 동기화 => 파이썬의 threading 모듈은 동기화를 위해 Lock 객체를 제공합니다
+# sys.exit()
+
+
+# 스레드 동기화
 # 여러 스레드가 동시에 접근할 때 데이터의 일관성을 유지하려면 스레드 동기화가 필요합니다. 
 # 파이썬의 threading 모듈은 동기화를 위해 Lock 객체를 제공합니다.
 
 lock = threading.Lock()
 counter = 0
 
+def time_check(func):
+    def wrapper(*args, **kwargs):
+        start_time = time.time()
+        func(*args, **kwargs)
+        end_time = time.time()
+        print(f"Elapsed time: {end_time - start_time:.4f} seconds")
+    return wrapper
+
+@time_check
 def increment_counter():
     global counter
     for _ in range(100000):
@@ -109,9 +85,11 @@ for t in threads:
 print(f"Final counter value: {counter}")
 print(f"{'='*100}\n")
 
+#sys.exit()
+
 
 if __name__ == '__main__':
-    multiprocessing.freeze_support()
+    multiprocessing.freeze_support() # 윈도우에서 필요한 코드 => RuntimeError 가 발생할 수 있습니다.
 
     print('#### 멀티프로세싱 ####')
 
@@ -121,15 +99,16 @@ if __name__ == '__main__':
     # 프로세스는 각기 독립적인 메모리 공간을 가지므로 GIL의 영향을 받지 않으며, CPU 바운드 작업에서 성능 향상을 기대할 수 있습니다.
 
     # 프로세스 생성
-    p1 = multiprocessing.Process(target=print_numbers)
-    p2 = multiprocessing.Process(target=print_letters)
-
-    # 프로세스 시작
-    p1.start()
-    p2.start()
+    processes = []
+    for i in range(3):
+        process = multiprocessing.Process(target=print_numbers)
+        processes.append(process)
+        process.start()
 
     # 프로세스가 종료될 때까지 대기
-    p1.join()
-    p2.join()
-
+    for process in processes:
+        process.join()
+        #pass
+    
     print("Both processes have finished execution")
+    print(f"{'='*100}\n")
